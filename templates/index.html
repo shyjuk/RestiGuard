@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup GUI</title>
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+</head>
+<body>
+    <h1>Backup GUI</h1>
+
+    <div id="backup-form">
+        <h2>Backup a Directory</h2>
+        <form hx-post="/backup" hx-target="#backup-status">
+            <label for="directory">Directory to Backup:</label>
+            <input type="text" id="directory" name="directory" required>
+            <button type="submit">Backup</button>
+        </form>
+        <div id="backup-status"></div>
+    </div>
+
+    <div id="snapshots">
+        <h2>Snapshots</h2>
+        <button hx-get="/snapshots" hx-target="#snapshot-list">Load Snapshots</button>
+        <ul id="snapshot-list">
+            <!-- Snapshots will be loaded here -->
+        </ul>
+    </div>
+</body>
+</html>
+
